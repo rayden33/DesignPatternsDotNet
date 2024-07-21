@@ -21,7 +21,7 @@ public class CardService
                 cc = new VisaCardCreator();
                 break;*/
             default: 
-                throw new Exception("Not supported card");
+                throw new UndefinedCardException("Not supported card");
         }
 
         return cc.GetCardBalance(cardPan);
