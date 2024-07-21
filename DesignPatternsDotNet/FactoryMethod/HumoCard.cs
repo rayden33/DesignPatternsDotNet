@@ -9,8 +9,8 @@ public class HumoCard : ICard
     public decimal GetBalance()
     {
         Random rand = new Random();
-        _balance = rand.Next();
-        Console.WriteLine($"Humo balance is:[{_balance}]");
+        _balance = rand.Next(10000000,1000000000);
+        Console.WriteLine($"Humo[{_cardPan}] balance:[{_balance}]");
         return _balance;
     }
 }
