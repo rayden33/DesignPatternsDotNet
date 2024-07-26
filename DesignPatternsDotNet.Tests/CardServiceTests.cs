@@ -7,7 +7,7 @@ public class CardServiceTests
     {
         var cardService = new CardService();
         decimal cardBalance = cardService.GetCardBalanceByCardPan("9860**********01");
-        Assert.True(cardBalance > 0);
+        Assert.True(cardBalance > 10000000 && cardBalance < 1000000000);
     }
 
     [Fact]

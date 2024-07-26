@@ -8,6 +8,8 @@ switch(pattern)
 {
     case "Factory Method": FactoryMethod();
         break;
+    case "Abstract Factory": AbstractFactory();
+        break;
     default: throw new Exception("Undefined pattern");
 }
 
@@ -18,5 +20,13 @@ void FactoryMethod()
     string cardPan = Console.ReadLine();
     CardService cardService = new CardService();
     Console.WriteLine(cardService.GetCardBalanceByCardPan(cardPan));
+}
+void AbstractFactory()
+{
+    Console.WriteLine("Please insert platform:");
+    string platform = Console.ReadLine();
+    UIService uiService = new UIService(platform);
+    Console.WriteLine(uiService.OnClickButton());
+    
 }
 
