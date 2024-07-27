@@ -58,12 +58,10 @@ public class UIServiceTests
 
     [Theory]
     [InlineData("ios")]
-    [InlineData("windows")]
+    [InlineData("androider")]
     [InlineData("")]
     public void UndefinedPlatform(string platform)
     {
-        
         Assert.Throws<UndefinedPlatfromException>(() => {UIService uiService = new UIService(platform);});
-
     }
 }

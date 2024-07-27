@@ -10,6 +10,8 @@ switch(pattern)
         break;
     case "Abstract Factory": AbstractFactory();
         break;
+    case "Builder": Builder();
+        break;
     default: throw new Exception("Undefined pattern");
 }
 
@@ -28,5 +30,13 @@ void AbstractFactory()
     UIService uiService = new UIService(platform);
     Console.WriteLine(uiService.OnClickButton());
     
+}
+void Builder()
+{
+    Console.WriteLine("Please insert game type:");
+    string gameType = Console.ReadLine();
+    GameService gameService = new GameService();
+    gameService.CreateNewGame(gameType);
+    Console.WriteLine(gameService.DescribeTheGame());
 }
 
