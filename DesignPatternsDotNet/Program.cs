@@ -14,6 +14,8 @@ switch(pattern)
         break;
     case "Prototype": Prototype();
         break;
+    case "Singleton": Singleton();
+        break;
     default: throw new Exception("Undefined pattern");
 }
 
@@ -47,5 +49,20 @@ void Prototype()
     LabaratoryService labaratoryService = new LabaratoryService();
     string result = labaratoryService.ExperimentWithCells();
     Console.WriteLine(result);
+}
+void Singleton()
+{
+    Console.WriteLine("Please insert connections count:");
+    int conCount = Convert.ToInt32(Console.ReadLine());
+    for(int i=0;i<conCount;i++)
+    {
+        Task task = new Task(() => {
+            DatabaseService database = new DatabaseService();
+            Console.WriteLine(database.GetConnectionSessionId());
+        });
+
+        task.Start();
+    }
+    Console.ReadLine();
 }
 
