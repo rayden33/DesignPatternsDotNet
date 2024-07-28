@@ -12,6 +12,8 @@ switch(pattern)
         break;
     case "Builder": Builder();
         break;
+    case "Prototype": Prototype();
+        break;
     default: throw new Exception("Undefined pattern");
 }
 
@@ -38,5 +40,12 @@ void Builder()
     GameService gameService = new GameService();
     gameService.CreateNewGame(gameType);
     Console.WriteLine(gameService.DescribeTheGame());
+}
+void Prototype()
+{
+    Console.WriteLine("Start experiment");
+    LabaratoryService labaratoryService = new LabaratoryService();
+    string result = labaratoryService.ExperimentWithCells();
+    Console.WriteLine(result);
 }
 
