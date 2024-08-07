@@ -1,3 +1,4 @@
+using Creational.FactoryMethod;
 namespace DesignPatternsDotNet.Tests;
 
 public class CardServiceTests

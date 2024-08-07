@@ -1,3 +1,4 @@
+using Creational.Singleton;
 public class DatabaseServiceTests
 {
     [Fact]

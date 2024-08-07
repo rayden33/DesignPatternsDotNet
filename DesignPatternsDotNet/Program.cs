@@ -1,5 +1,24 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Creational.AbstractFactory;
+using Creational.Builder;
+using Creational.FactoryMethod;
+using Creational.Prototype;
+using Creational.Singleton;
+// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
+
+Console.WriteLine("Please select catalog:");
+string catalog = Console.ReadLine();
+switch(catalog)
+{
+    case "Creational": FactoryMethod();
+        break;
+    case "Structural": AbstractFactory();
+        break;
+    case "Behavioral": Builder();
+        break;
+    default: throw new Exception("Undefined catalog");
+}
+
 
 Console.WriteLine("Please select pattern:");
 string pattern = Console.ReadLine();

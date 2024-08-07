@@ -7,3 +7,9 @@ Available patterns:
 3. Builder
 4. Prototype
 5. Singleton
+
+
+
+
+
+Design patterns web resource : https://refactoring.guru/
