@@ -7,7 +7,7 @@ Available patterns:
 3. Builder
 4. Prototype
 5. Singleton
-
+6. Adapter
 
 
 

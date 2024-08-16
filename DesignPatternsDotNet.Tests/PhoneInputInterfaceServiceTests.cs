@@ -15,8 +15,8 @@ public class PhoneInputInterfaceServiceTests
     }
 
     [Theory]
-    [InlineData("ios")]
-    [InlineData("androider")]
+    [InlineData("sound")]
+    [InlineData("mental")]
     [InlineData("")]
     public void UndefinedPlatform(string inputInterface)
     {

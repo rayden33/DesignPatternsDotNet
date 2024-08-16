@@ -3,16 +3,18 @@ using Creational.Builder;
 using Creational.FactoryMethod;
 using Creational.Prototype;
 using Creational.Singleton;
+using Structural.Adapter;
+using Structural.Bridge;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-Console.WriteLine("Please select catalog:");
+Console.WriteLine("Please select catalog:(Creational, Structural, Behavioral)");
 string catalog = Console.ReadLine();
 switch(catalog)
 {
-    case "Creational": FactoryMethod();
+    case "Creational": Creational();
         break;
-    case "Structural": AbstractFactory();
+    case "Structural": Structural();
         break;
     case "Behavioral": Builder();
         break;
@@ -20,24 +22,43 @@ switch(catalog)
 }
 
 
-Console.WriteLine("Please select pattern:");
-string pattern = Console.ReadLine();
 
-switch(pattern)
+
+void Creational()
 {
-    case "Factory Method": FactoryMethod();
-        break;
-    case "Abstract Factory": AbstractFactory();
-        break;
-    case "Builder": Builder();
-        break;
-    case "Prototype": Prototype();
-        break;
-    case "Singleton": Singleton();
-        break;
-    default: throw new Exception("Undefined pattern");
+    Console.WriteLine("Please select pattern:");
+    string pattern = Console.ReadLine();
+
+    switch(pattern)
+    {
+        case "Factory Method": FactoryMethod();
+            break;
+        case "Abstract Factory": AbstractFactory();
+            break;
+        case "Builder": Builder();
+            break;
+        case "Prototype": Prototype();
+            break;
+        case "Singleton": Singleton();
+            break;
+        default: throw new Exception("Undefined pattern");
+    }
 }
 
+void Structural()
+{
+    Console.WriteLine("Please select pattern:");
+    string pattern = Console.ReadLine();
+
+    switch(pattern)
+    {
+        case "Adapter": Adapter();
+            break;
+        case "Bridge": Bridge();
+            break;
+        default: throw new Exception("Undefined pattern");
+    }
+}
 
 void FactoryMethod()
 {
@@ -83,5 +104,28 @@ void Singleton()
         task.Start();
     }
     Console.ReadLine();
+}
+
+void Adapter()
+{
+    Console.WriteLine("Please insert input type");
+    string inputType = Console.ReadLine();
+    PhoneInputInterfaceService inputInterface = new PhoneInputInterfaceService(inputType);
+    inputInterface.VirtualPhoneClickAllButton();
+}
+
+void Bridge()
+{
+    Console.WriteLine("Please select smart home command:");
+    Console.WriteLine("0 - Wake Up");
+    Console.WriteLine("1 - Preparing Home");
+    int commandId = Convert.ToInt32(Console.ReadLine());
+    SmartHomeService smartHomeService = new SmartHomeService();
+    switch(commandId)
+    {
+        case 0: smartHomeService.WakeUp(); break;
+        case 1: Console.WriteLine(smartHomeService.PreparingHome()); break;
+        default: throw new Exception("Undefined command");
+    }
 }
 
