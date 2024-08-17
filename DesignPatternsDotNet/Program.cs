@@ -5,6 +5,7 @@ using Creational.Prototype;
 using Creational.Singleton;
 using Structural.Adapter;
 using Structural.Bridge;
+using Structural.Composite;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
@@ -55,6 +56,8 @@ void Structural()
         case "Adapter": Adapter();
             break;
         case "Bridge": Bridge();
+            break;
+        case "Composite": Composite();
             break;
         default: throw new Exception("Undefined pattern");
     }
@@ -127,5 +130,53 @@ void Bridge()
         case 1: Console.WriteLine(smartHomeService.PreparingHome()); break;
         default: throw new Exception("Undefined command");
     }
+}
+
+void Composite()
+{
+    GameSceneService gameSceneService = new GameSceneService();
+    List<GameObject> allGameObjects = new List<GameObject>();
+    Console.WriteLine("Please insert Container count:");
+    int count = Convert.ToInt32(Console.ReadLine());
+    Container mainContainer = new Container(0,0);
+    Container tmpContainer = mainContainer;
+    for(int i=0;i<count;i++)
+    {
+        Container cnt = new Container(0,i);
+        tmpContainer.AddChild(cnt);
+        tmpContainer = cnt;
+        allGameObjects.Add(cnt);
+    }
+
+    Console.WriteLine("Please insert Cube count:");
+    count = Convert.ToInt32(Console.ReadLine());
+    for(int i=0;i<count;i++)
+    {
+        Cube cb = new Cube(i,0);
+        tmpContainer.AddChild(cb);
+        allGameObjects.Add(cb);
+    }
+    Console.WriteLine("Objects positions before moving:");
+
+    foreach(GameObject obj in allGameObjects)
+    {
+        if(obj is Container)
+            Console.WriteLine($"Container : {obj.X}-{obj.Y}");
+        else
+            Console.WriteLine($"Cube : {obj.X}-{obj.Y}");
+    }
+
+    mainContainer.UnitedMovement(1,1);
+
+    Console.WriteLine("Objects positions after moving:");
+
+    foreach(GameObject obj in allGameObjects)
+    {
+        if(obj is Container)
+            Console.WriteLine($"Container : {obj.X}-{obj.Y}");
+        else
+            Console.WriteLine($"Cube : {obj.X}-{obj.Y}");
+    }
+
 }
 

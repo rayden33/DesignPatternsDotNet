@@ -8,7 +8,8 @@ Available patterns:
 4. Prototype
 5. Singleton
 6. Adapter
-
+7. Bridge
+8. Composite
 
 
 
