@@ -10,6 +10,7 @@ Available patterns:
 6. Adapter
 7. Bridge
 8. Composite
+9. Decorator
 
 
 

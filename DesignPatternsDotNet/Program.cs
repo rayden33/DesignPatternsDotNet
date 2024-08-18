@@ -6,6 +6,7 @@ using Creational.Singleton;
 using Structural.Adapter;
 using Structural.Bridge;
 using Structural.Composite;
+using Structural.Decorator;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
@@ -58,6 +59,8 @@ void Structural()
         case "Bridge": Bridge();
             break;
         case "Composite": Composite();
+            break;
+        case "Decorator": Decorator();
             break;
         default: throw new Exception("Undefined pattern");
     }
@@ -178,5 +181,28 @@ void Composite()
             Console.WriteLine($"Cube : {obj.X}-{obj.Y}");
     }
 
+}
+
+void Decorator()
+{
+    Console.WriteLine("Please select notify level:");
+    Console.WriteLine("0 - Only SMS");
+    Console.WriteLine("1 - SMS and Email");
+    Console.WriteLine("2 - SMS, Email and Facebook");
+    int level = Convert.ToInt32(Console.ReadLine());
+
+    SmsNotifier smsNotifier = new SmsNotifier();
+
+    Notifier notifier = smsNotifier;
+
+    if(level > 0)
+        notifier = new EmailNotifierDecorator(notifier);
+    
+    if(level > 1)
+        notifier = new FacebookNotifierDecorator(notifier);
+
+
+    NotifierService notifierService = new NotifierService(notifier);
+    Console.WriteLine(notifierService.NotifyClient("Hello world"));
 }
 
