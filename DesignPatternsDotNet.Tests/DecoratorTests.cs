@@ -1,6 +1,6 @@
 using Structural.Decorator;
 
-public class NotifierServiceTests
+public class DecoratorTests
 {
     [Fact]
     public void CheckNotificationWithAll()

@@ -1,6 +1,5 @@
 using Structural.Bridge;
-namespace DesignPatternsDotNet.Tests;
-public class SmartHomeServiceTests
+public class BridgeTests
 {
     [Fact]
     public void CheckPreparingHome()

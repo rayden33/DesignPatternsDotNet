@@ -1,5 +1,5 @@
 using Creational.Singleton;
-public class DatabaseServiceTests
+public class SingletonTests
 {
     [Fact]
     public void CreateMoreConnections()

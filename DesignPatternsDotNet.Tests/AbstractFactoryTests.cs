@@ -1,8 +1,7 @@
 using Creational.AbstractFactory;
-namespace DesignPatternsDotNet.Tests;
 
 
-public class UIServiceTests
+public class AbstractFactoryTests
 {
     [Fact]
     public void AndroidButton()

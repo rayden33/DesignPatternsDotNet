@@ -1,8 +1,7 @@
 using Structural.Adapter;
-namespace DesignPatternsDotNet.Tests;
 
 
-public class PhoneInputInterfaceServiceTests
+public class AdapterTests
 {
 
     [Fact]

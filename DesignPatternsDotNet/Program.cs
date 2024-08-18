@@ -7,6 +7,7 @@ using Structural.Adapter;
 using Structural.Bridge;
 using Structural.Composite;
 using Structural.Decorator;
+using Structural.Facade;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
@@ -61,6 +62,8 @@ void Structural()
         case "Composite": Composite();
             break;
         case "Decorator": Decorator();
+            break;
+        case "Facade": Facade();
             break;
         default: throw new Exception("Undefined pattern");
     }
@@ -204,5 +207,13 @@ void Decorator()
 
     NotifierService notifierService = new NotifierService(notifier);
     Console.WriteLine(notifierService.NotifyClient("Hello world"));
+}
+
+void Facade()
+{
+    GameCreatorFacade creatorFacade = new GameCreatorFacade();
+    Console.WriteLine("Please insert player name:");
+    string playerName = Console.ReadLine();
+    Console.WriteLine(creatorFacade.CreateRandomGameDescription(playerName));
 }
 

@@ -1,7 +1,6 @@
 using Creational.FactoryMethod;
-namespace DesignPatternsDotNet.Tests;
 
-public class CardServiceTests
+public class FactoryMethodTests
 {
     [Fact]
     public void GetHumoCardBalance()

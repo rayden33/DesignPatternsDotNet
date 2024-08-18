@@ -1,5 +1,5 @@
 using Creational.Builder;
-public class GameServiceTests
+public class BuilderTests
 {
     [Fact]
     public void CreateUnderSeaWorld()

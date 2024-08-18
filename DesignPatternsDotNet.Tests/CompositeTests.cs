@@ -1,6 +1,6 @@
 using Structural.Composite;
 
-public class GameSceneServiceTests
+public class CompositeTests
 {
     [Fact]
     public void CheckToRecursiveMovement()
