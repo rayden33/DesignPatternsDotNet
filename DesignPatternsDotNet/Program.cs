@@ -9,6 +9,7 @@ using Structural.Composite;
 using Structural.Decorator;
 using Structural.Facade;
 using Structural.Flyweight;
+using Structural.Proxy;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
@@ -67,6 +68,8 @@ void Structural()
         case "Facade": Facade();
             break;
         case "Flyweight": Flyweight();
+            break;
+        case "Proxy": Proxy();
             break;
         default: throw new Exception("Undefined pattern");
     }
@@ -228,5 +231,20 @@ void Flyweight()
     int redCount = Convert.ToInt32(Console.ReadLine());
     forestService.GenerateTrees(greenCount, redCount);
     Console.WriteLine(forestService.GetForestTreesFruits());
+}
+
+void Proxy()
+{
+    MarketApi marketApi = new MarketApi();
+    MarketApiCacheService marketApiCacheService = new MarketApiCacheService(marketApi);
+    MarketService marketService = new MarketService(marketApiCacheService);
+
+    Console.WriteLine("Please insert request count:");
+    int requestCount = Convert.ToInt32(Console.ReadLine());
+
+    for(int i=0;i<requestCount;i++)
+        Console.WriteLine(marketService.GetProductInfo(1));
+    
+    Console.WriteLine($"Requested count to api is {marketApi.GetApiRequestedCount()}");
 }
 
