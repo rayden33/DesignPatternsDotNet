@@ -8,6 +8,7 @@ using Structural.Bridge;
 using Structural.Composite;
 using Structural.Decorator;
 using Structural.Facade;
+using Structural.Flyweight;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
@@ -64,6 +65,8 @@ void Structural()
         case "Decorator": Decorator();
             break;
         case "Facade": Facade();
+            break;
+        case "Flyweight": Flyweight();
             break;
         default: throw new Exception("Undefined pattern");
     }
@@ -215,5 +218,15 @@ void Facade()
     Console.WriteLine("Please insert player name:");
     string playerName = Console.ReadLine();
     Console.WriteLine(creatorFacade.CreateRandomGameDescription(playerName));
+}
+
+void Flyweight()
+{
+    ForestService forestService = new ForestService();
+    Console.WriteLine("Please insert green trees and red trees count:");
+    int greenCount = Convert.ToInt32(Console.ReadLine());
+    int redCount = Convert.ToInt32(Console.ReadLine());
+    forestService.GenerateTrees(greenCount, redCount);
+    Console.WriteLine(forestService.GetForestTreesFruits());
 }
 

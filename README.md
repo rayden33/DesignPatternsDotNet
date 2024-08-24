@@ -11,6 +11,8 @@ Available patterns:
 7. Bridge
 8. Composite
 9. Decorator
+10. Facade
+11. Flyweight
 
 
 
